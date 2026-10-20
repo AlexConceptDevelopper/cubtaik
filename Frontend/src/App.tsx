@@ -12,12 +12,6 @@ export default function App() {
         <Routes>
           {/* Public Showcase */}
           <Route path="/" element={<Home />} />
-
-
-          {/* Protected Admin Space (Back-office pour gérer les produits, etc.) */}
-          {/* <Route element={<ProtectedRoute />}>
-            <Route path="/admin" element={<AdminDashboardPage />} />
-          </Route> */}
         </Routes>
       </AuthProvider>
     </BrowserRouter>

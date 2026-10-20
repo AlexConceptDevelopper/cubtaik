@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { ProjectsShowcase } from '../components/ProjectsShowcase';
@@ -8,74 +7,51 @@ import { AboutStudio } from '../components/AboutStudio';
 
 export const Home: React.FC = () => {
   return (
-    <>
-      <Helmet>
-        <title>CubTaik – Studio de Création Logicielle & Produits Numériques</title>
-        <meta 
-          name="description" 
-          content="CubTaik conçoit, développe et propulse des micro-services Web et des solutions SaaS axés sur la simplicité et l'expérience utilisateur." 
-        />
-        <link rel="canonical" href="https://www.cubtaik.fr/" />
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-slate-950">
+      <Navbar />
 
-        {/* Open Graph / Réseaux sociaux */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.cubtaik.fr/" />
-        <meta property="og:title" content="CubTaik – Studio de Création Logicielle" />
-        <meta property="og:description" content="Découvrez CubTaik, la plateforme qui bâtit des produits numériques utiles et automatisés." />
-        <meta property="og:image" content="https://www.cubtaik.fr/og-image.png" />
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="relative pt-20 pb-24 md:pt-32 md:pb-36 overflow-hidden">
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 blur-[140px] rounded-full pointer-events-none" />
 
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="CubTaik – Studio de Création Logicielle" />
-        <meta name="twitter:description" content="Découvrez CubTaik, la plateforme qui bâtit des produits numériques utiles et automatisés." />
-      </Helmet>
-
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-slate-950">
-        <Navbar />
-
-        <main className="flex-1">
-          {/* Hero Section */}
-          <section className="relative pt-20 pb-24 md:pt-32 md:pb-36 overflow-hidden">
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 blur-[140px] rounded-full pointer-events-none" />
-
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-emerald-400 text-xs font-mono mb-8 shadow-inner">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                Studio de Création Logicielle
-              </div>
-
-              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-100 leading-tight sm:leading-none">
-                Nous bâtissons des <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-teal-100">produits numériques</span> utiles et automatisés.
-              </h1>
-
-              <p className="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto font-normal leading-relaxed">
-                CubTaik est l'entité centrale qui conçoit, développe et propulse des micro-services Web axés sur la simplicité et l'expérience utilisateur.
-              </p>
-
-              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href="#projets"
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-bold hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20 text-xs uppercase tracking-wider"
-                >
-                  Découvrir nos réalisations
-                </a>
-                <a
-                  href="#actualites"
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold hover:bg-slate-800 transition-all text-xs uppercase tracking-wider font-mono"
-                >
-                  // Tech_Feed
-                </a>
-              </div>
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-emerald-400 text-xs font-mono mb-8 shadow-inner">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Studio de Création Logicielle
             </div>
-          </section>
 
-          <ProjectsShowcase />
-          <TechFeed />
-          <AboutStudio />
-        </main>
+            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-100 leading-tight sm:leading-none">
+              Nous bâtissons des <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-teal-100">produits numériques</span> utiles et automatisés.
+            </h1>
 
-        <Footer />
-      </div>
-    </>
+            <p className="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto font-normal leading-relaxed">
+              CubTaik est l'entité centrale qui conçoit, développe et propulse des micro-services Web axés sur la simplicité et l'expérience utilisateur.
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="#projets"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-bold hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20 text-xs uppercase tracking-wider"
+              >
+                Découvrir nos réalisations
+              </a>
+              <a
+                href="#actualites"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold hover:bg-slate-800 transition-all text-xs uppercase tracking-wider font-mono"
+              >
+                // Tech_Feed
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <ProjectsShowcase />
+        <TechFeed />
+        <AboutStudio />
+      </main>
+
+      <Footer />
+    </div>
   );
 };

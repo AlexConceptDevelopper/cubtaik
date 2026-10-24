@@ -111,7 +111,7 @@ export const ProjectsShowcase: React.FC = () => {
         {/* Liste des Projets */}
         <div className="space-y-24">
           {PROJECTS_DATA.map((project) => (
-            <div 
+            <article 
               key={project.id} 
               className="p-8 sm:p-10 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-emerald-500/40 transition-all duration-300 group"
             >
@@ -125,7 +125,7 @@ export const ProjectsShowcase: React.FC = () => {
                 >
                   <img 
                     src={project.images.main} 
-                    alt={`${project.title} - Capture Principale`} 
+                    alt={`Capture principale de ${project.title} - ${project.domain}`} 
                     className="w-full h-full object-cover object-top group-hover/img:scale-[1.02] transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center text-xs font-mono text-emerald-400">
@@ -141,7 +141,7 @@ export const ProjectsShowcase: React.FC = () => {
                   >
                     <img 
                       src={project.images.preview1} 
-                      alt={`${project.title} - Aperçu 1`} 
+                      alt={`Aperçu 1 de ${project.title}`} 
                       className="w-full h-full object-cover object-top group-hover/img:scale-[1.02] transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center text-[10px] font-mono text-emerald-400">
@@ -155,7 +155,7 @@ export const ProjectsShowcase: React.FC = () => {
                   >
                     <img 
                       src={project.images.preview2} 
-                      alt={`${project.title} - Aperçu 2`} 
+                      alt={`Aperçu 2 de ${project.title}`} 
                       className="w-full h-full object-cover object-top group-hover/img:scale-[1.02] transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center text-[10px] font-mono text-emerald-400">
@@ -176,8 +176,17 @@ export const ProjectsShowcase: React.FC = () => {
                     <span className="text-xs font-mono text-slate-500">{project.domain}</span>
                   </div>
                   
+                  {/* Titre cliquable optimisé SEO */}
                   <h3 className="text-2xl font-bold text-slate-100 group-hover:text-emerald-400 transition-colors">
-                    {project.title}
+                    <a 
+                      href={project.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                      aria-label={`Accéder au site officiel de ${project.title}`}
+                    >
+                      {project.title} ↗
+                    </a>
                   </h3>
                   
                   <p className="mt-2 text-slate-400 text-sm leading-relaxed">
@@ -193,16 +202,18 @@ export const ProjectsShowcase: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Bouton d'action avec ancre optimisée */}
                 <a 
                   href={project.url} 
                   target="_blank" 
-                  rel="noreferrer" 
+                  rel="noopener noreferrer" 
+                  aria-label={`Visiter la plateforme ${project.title} (${project.domain})`}
                   className="shrink-0 px-6 py-3 rounded-xl bg-emerald-500 text-slate-950 font-bold hover:bg-emerald-400 transition-all text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/10"
                 >
-                  Visiter le site ↗
+                  Visiter {project.title} ↗
                 </a>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
@@ -225,7 +236,7 @@ export const ProjectsShowcase: React.FC = () => {
             {/* Image en grand */}
             <img 
               src={activeImage} 
-              alt="Aperçu agrandi" 
+              alt="Aperçu agrandi du projet" 
               className="max-w-full max-h-[85vh] object-contain rounded-xl border border-slate-800 shadow-2xl bg-slate-900"
             />
           </div>
